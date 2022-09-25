@@ -24,3 +24,7 @@ Fist of all, i'm thankfull to [Guilherme Bermêo](https://github.com/GMBermeo). 
 > - Install QMK MSYS.
 > - Open the prompt. 
 > - Build and flash (as 'useful commands'). 
+
+Enjoy
+
+<sup> Contact me and i may help you. S2 </sup>
