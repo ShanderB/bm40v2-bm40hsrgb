@@ -23,7 +23,11 @@ Fist of all, i'm thankfull to [Guilherme Bermêo](https://github.com/GMBermeo). 
 >
 > - Install QMK MSYS.
 > - Open the prompt. 
-> - Build and flash (as 'useful commands'). 
+> - Build and flash (as 'useful commands').
+
+
+To brazilian writers:
+[How write special characters](https://pt.wikihow.com/Digitar-Caracteres-Estrangeiros-em-Teclado-Americano#:~:text=Por%20exemplo%2C%20ao%20clicar%20na%20tecla%20%5B%E2%80%98%5D%2C)
 
 Enjoy
 
