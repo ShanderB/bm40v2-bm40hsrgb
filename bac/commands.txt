@@ -1,0 +1,2 @@
+qmk compile -kb kprepublic/bm40hsrgb/rev2 -km <keymap name> (exemple: via)
+qmk flash -kb kprepublic/bm40hsrgb/rev2 -km <keymap name> (exemple: via)
