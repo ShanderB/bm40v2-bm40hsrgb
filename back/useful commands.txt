@@ -1,2 +1,11 @@
+Build:
 qmk compile -kb kprepublic/bm40hsrgb/rev2 -km <keymap name> (exemple: via)
+
+
+Flash:
 qmk flash -kb kprepublic/bm40hsrgb/rev2 -km <keymap name> (exemple: via)
+
+
+
+Build and flash:
+make kprepublic/bm40hsrgb/rev2:<keymap name>:flash
