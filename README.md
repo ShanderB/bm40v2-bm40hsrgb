@@ -1,4 +1,4 @@
-Fist of all, i'm thankfull to [Guilherme Bermêo](https://github.com/GMBermeo). He helped me get this firmware.
+First of all, i'm thankfull to [Guilherme Bermêo](https://github.com/GMBermeo). He helped me get this firmware.
 
 > 'myKeys' is a folder with the build files for pt-br with INTL win keyboard config.
 
