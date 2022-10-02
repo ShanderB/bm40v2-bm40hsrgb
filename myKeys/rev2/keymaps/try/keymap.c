@@ -121,26 +121,41 @@ void rgb_matrix_indicators_user(void) {
 #ifdef RGB_MATRIX_ENABLE
     switch (get_highest_layer(layer_state)) {
         case _QWERTY:
-            rgb_matrix_set_color(42, 255, 33, 0);  //Layer 1 button
             for (int i = 0; i < DRIVER_LED_TOTAL; i++) { //prevent keyboard turn on all the leds that i dont want
                 switch (i) {
-                    case 0 ... 41:
-                    case 43 ... 46:
+                    case 0 ... 46:
                         rgb_matrix_set_color(i, 0, 0, 0);
+                        break;
                 }
             }
+            rgb_matrix_set_color(42, 255, 33, 0);  //Layer 1 button
+
         break;
 
         case _RAISE:
             for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
                 switch (i) {
+                    case 0:
+                        rgb_matrix_set_color(i, 0, 0, 0);
+                        break;
                     case 1 ... 10:
                         rgb_matrix_set_color(i, 255, 33, 0); //numbers Layer 2
+                        break;
+                    case 11 ... 46:
+                        rgb_matrix_set_color(i, 0, 0, 0);
+                        break;
                 }
             }
             break;
 
         case _LOWER:
+            for (int i = 0; i < DRIVER_LED_TOTAL; i++) { //prevent keyboard turn on all the leds that i dont want
+                switch (i) {
+                    case 0 ... 46:
+                        rgb_matrix_set_color(i, 0, 0, 0);
+                        break;
+                }
+            }
             rgb_matrix_set_color(9, 255, 33, 0); //Coding keys
             rgb_matrix_set_color(10, 255, 33, 0); //Coding keys
             rgb_matrix_set_color(21, 255, 33, 0); //Coding keys
@@ -152,6 +167,13 @@ void rgb_matrix_indicators_user(void) {
         break;
 
         case _NUMP:
+            for (int i = 0; i < DRIVER_LED_TOTAL; i++) { //prevent keyboard turn on all the leds that i dont want
+                switch (i) {
+                    case 0 ... 46:
+                        rgb_matrix_set_color(i, 0, 0, 0);
+                        break;
+                }
+            }
             rgb_matrix_set_color(1, 255, 0, 0); //Reset key
         break;
 
