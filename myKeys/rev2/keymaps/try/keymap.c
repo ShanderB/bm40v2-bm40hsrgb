@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,---------------------------------------------------------------------------------------------------.
  * |   '   |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |       )       |      ~ `   |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
- * |      |      |      |   F2   |  F4  | F5  |  F12  |   - |   +  |  {   |            }   |      Pipe   |
+ * |      |      |      |   F2   |  F4  | F5  |    |   F12- |   +  |  {   |            }   |      Pipe   |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
  * |LShift|    |    |    |   |   |   |S(NUHS)|S(NUBS)|Home|       End     |                            |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT_ortho_4x12_1x2uC(
 
       KC_QUOT , KC_EXLM , KC_AT   , KC_HASH , KC_DLR , KC_PERC , KC_CIRC , KC_AMPR    , KC_ASTR    , KC_LPRN , KC_RPRN , KC_GRV,
-      KC_NO   , KC_NO   , KC_F2   ,  KC_F4  , KC_F5 , KC_F12   , KC_NO   , KC_UNDS    , KC_PLUS    , KC_LCBR , KC_RCBR , KC_PIPE,
+      KC_NO   , KC_NO   , KC_F2   ,  KC_F4  , KC_F5 ,  KC_F6  , KC_F12   , KC_UNDS    , KC_PLUS    , KC_LCBR , KC_RCBR , KC_PIPE,
       KC_LSFT , KC_NO   , KC_NO   , KC_NO   , KC_NO , KC_NO  , KC_NO  , S(KC_NUHS) , S(KC_NUBS) , KC_HOME , KC_END  , KC_NO,
       KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO  , MO(3)   , KC_NO   , KC_NO      , KC_NO      , CEDILHA , AO
 
