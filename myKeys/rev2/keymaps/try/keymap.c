@@ -121,8 +121,14 @@ void rgb_matrix_indicators_user(void) {
 #ifdef RGB_MATRIX_ENABLE
     switch (get_highest_layer(layer_state)) {
         case _QWERTY:
-            // rgb_matrix_set_color(40, 255, 33, 0);  //Layer 2
-            rgb_matrix_set_color(42, 255, 33, 0);  //Layer 1
+            rgb_matrix_set_color(42, 255, 33, 0);  //Layer 1 button
+            for (int i = 0; i < DRIVER_LED_TOTAL; i++) { //prevent keyboard turn on all the leds that i dont want
+                switch (i) {
+                    case 0 ... 41:
+                    case 43 ... 46:
+                        rgb_matrix_set_color(i, 0, 0, 0);
+                }
+            }
         break;
 
         case _RAISE:
