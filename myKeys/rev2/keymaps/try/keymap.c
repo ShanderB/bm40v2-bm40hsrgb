@@ -40,18 +40,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------------------------------------------------------------------.
  * | Esc  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  |     Backspace   |
  * |------+------+------+------+------+------+------+------+------+------+------+-----------------|
- * | Tab  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |      Del        |
+ * | Tab  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |      Enter      |
  * |------+------+------+------+------+------+------+------+------+------+------+-----------------|
- * | LShift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |                |
+ * | LShift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |      Del       |
  * |------+------+------+------+------+------+------+------+------+------+------+-----------------|
- * | LCtrl | GUI |  Lower    | LAlt  |   Enter    |  Space  |    | Up | Down |  Left  |   Right   |
+ * | LCtrl | GUI |      | LAlt  |   Enter    |  Space  |  Lower  | Up | Down |  Left  |   Right   |
  * `----------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_ortho_4x12_1x2uC(
       KC_ESC  , KC_Q   , KC_W , KC_E   , KC_R , KC_T   , KC_Y  , KC_U   , KC_I    , KC_O    , KC_P    , KC_BSPC,
-      KC_TAB  , KC_A   , KC_S , KC_D   , KC_F , KC_G   , KC_H  , KC_J   , KC_K    , KC_L    , KC_SCLN , KC_DEL,
-      KC_LSFT , KC_Z   , KC_X , KC_C   , KC_V , KC_B   , KC_N  , KC_M   , KC_COMM , KC_DOT  , KC_SLSH , KC_NO,
-      KC_LCTL , KC_LGUI, MO(1), KC_LALT, KC_ENT, LT(2,KC_SPC) , KC_NO , KC_UP  , KC_DOWN , KC_LEFT , KC_RGHT
+      KC_TAB  , KC_A   , KC_S , KC_D   , KC_F , KC_G   , KC_H  , KC_J   , KC_K    , KC_L    , KC_SCLN , KC_ENT,
+      KC_LSFT , KC_Z   , KC_X , KC_C   , KC_V , KC_B   , KC_N  , KC_M   , KC_COMM , KC_DOT  , KC_SLSH , KC_DEL,
+      KC_LCTL , KC_LGUI, KC_NO, KC_LALT, KC_ENT, LT(2,KC_SPC) , MO(1) , KC_UP  , KC_DOWN , KC_LEFT , KC_RGHT
 ),
 
 /* Lower (Layer 1)
@@ -128,7 +128,7 @@ void rgb_matrix_indicators_user(void) {
                         break;
                 }
             }
-            rgb_matrix_set_color(38, 255, 33, 0);  //Layer 1 button
+            rgb_matrix_set_color(42, 255, 33, 0);  //Layer 1 button
             rgb_matrix_set_color(40, 255, 33, 0);  //Layer 1 button
 
         break;
