@@ -44,33 +44,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+-----------------|
  * | LShift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |      Del       |
  * |------+------+------+------+------+------+------+------+------+------+------+-----------------|
- * | LCtrl | GUI |      | LAlt  |   Enter    |  Space  |  Lower  | Up | Down |  Left  |   Right   |
+ * | LCtrl |  |   GUI   | Enter  |   LAlt    |  Space  |  Lower  | Up | Down |  Left  |   Right   |
  * `----------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_ortho_4x12_1x2uC(
       KC_ESC  , KC_Q   , KC_W , KC_E   , KC_R , KC_T   , KC_Y  , KC_U   , KC_I    , KC_O    , KC_P    , KC_BSPC,
       KC_TAB  , KC_A   , KC_S , KC_D   , KC_F , KC_G   , KC_H  , KC_J   , KC_K    , KC_L    , KC_SCLN , KC_ENT,
       KC_LSFT , KC_Z   , KC_X , KC_C   , KC_V , KC_B   , KC_N  , KC_M   , KC_COMM , KC_DOT  , KC_SLSH , KC_DEL,
-      KC_LCTL , KC_LGUI, KC_NO, KC_LALT, KC_ENT, LT(2,KC_SPC) , MO(1) , KC_UP  , KC_DOWN , KC_LEFT , KC_RGHT
+      KC_LCTL , KC_NO  , KC_LGUI, KC_ENT , KC_LALT, LT(2,KC_SPC) , MO(1) , KC_UP  , KC_DOWN , KC_LEFT , KC_RGHT
 ),
 
 /* Lower (Layer 1)
  * ,---------------------------------------------------------------------------------------------------.
- * |   '   |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |       )       |      ~ `   |
+ * |   '   |   (  |  )   |   [{   |   }]   |    |     |    |     |     |              |      ~ `   |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
- * |      |      |   F2       |  F4  | F5  |  F6  |   F12 |  - |   +  |  {   |     }        |      Pipe |
+ * |      |      |          |    |   |    |    |   |     |    |            |       |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
- * |LShift|    |    |    |   |   |   |S(NUHS)|S(NUBS)|Home|       End     |                            |
+ * |LShift|    |    |    |   |   |   |S(NUHS)|S(NUBS)|Home|       End                   |              |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
- * |                                                                     /      Ç        /      Ã      |
+ * |                                                     Next  |Vol - |   Vol +       |      Play      |
  * `---------------------------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_ortho_4x12_1x2uC(
 
-      KC_QUOT , KC_EXLM , KC_AT   , KC_HASH , KC_DLR , KC_PERC , KC_CIRC , KC_AMPR    , KC_ASTR    , KC_LPRN , KC_RPRN , KC_GRV,
-      KC_NO   ,  KC_NO  ,  KC_F2  ,  KC_F4  , KC_F5 ,  KC_F6  , KC_F12   , KC_UNDS    , KC_PLUS    , KC_LCBR , KC_RCBR , KC_PIPE,
-      KC_LSFT , KC_NO   , KC_NO   , KC_NO   , KC_NO , KC_NO  , KC_NO  , S(KC_NUHS) , S(KC_NUBS) , KC_HOME , KC_END  , KC_NO,
-      KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO  , MO(3)   , KC_NO   , KC_NO      , KC_NO      , CEDILHA , AO
+      KC_QUOT , KC_LPRN , KC_RPRN , KC_LBRC ,KC_RBRC , KC_NO , KC_NO , KC_NO      , KC_NO      , KC_NO   ,KC_NO  , KC_GRV,
+      KC_NO   ,  KC_NO  , KC_NO   ,  KC_NO  , KC_NO  , KC_NO , KC_NO , KC_NO      , KC_NO      , KC_NO   , KC_NO , KC_NO,
+      KC_LSFT , KC_NO   , KC_NO   , KC_NO   , KC_NO  , KC_NO , KC_NO , S(KC_NUHS) , S(KC_NUBS) , KC_HOME , KC_END, KC_NO,
+      KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO  , MO(3) , KC_NO , KC_MNXT      , KC_VOLD      ,  KC_VOLU , KC_MPLY
 
 ),
 
@@ -78,18 +78,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,---------------------------------------------------------------------------------------------------.
  * |      |   1!  |   2@  |   3#  |   4$  |   5%  |   6^  |   7&  |   8*  |   9(  |   0) |  Backspace  |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
- * |      |    |  F2  |   F4   | F5   |  F6  |   F12    |   -_ |   += |  [{  |  }]           |    \ |  |
+ * |  Ç     | F2   |  F4  |   F5   |    |    |       |   -_ |   += |    |             |    \ |         |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
- * |LShift|      |      |      |      |      |       | NUHS | NUBS | PgUp  |   PgDn       |            |
+ * |LShift|   F6   |   F12   |      |      |      |       | NUHS | NUBS | PgUp  |   PgDn       |       |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
- * |      |      |      |      |      |             |      |Next  |Vol - |   Vol +       |    Play     |
+ * |      |      |      |      |      |             |      |      |     |               |              |
  * `---------------------------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_ortho_4x12_1x2uC(
       KC_NO  , KC_1  , KC_2  , KC_3  , KC_4   , KC_5   , KC_6   , KC_7    , KC_8    , KC_9     ,KC_0    , KC_BSPC,
-      KC_NO , KC_NO , KC_F2 , KC_F4 , KC_F5  , KC_F6  , KC_F12  , KC_MINS , KC_EQL  , KC_LBRC  ,KC_RBRC , KC_BSLS,
-      KC_LSFT, KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NUHS , KC_NUBS , KC_PGUP  ,KC_PGDN , KC_NO,
-      KC_NO  , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_MNXT , KC_VOLD , KC_VOLU  ,KC_MPLY
+      CEDILHA  , KC_F2 , KC_F4 , KC_F5 , KC_NO  , KC_NO  , KC_NO  , KC_MINS , KC_EQL  ,  KC_NO   ,KC_NO   , KC_BSLS,
+      KC_LSFT, KC_F6 ,  KC_F12, KC_NO, KC_NO  , KC_NO  , KC_NO  , KC_NUHS , KC_NUBS , KC_PGUP  ,KC_PGDN , KC_NO,
+      KC_NO  , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_NO , KC_NO ,  KC_NO , KC_NO
 
 ),
 
@@ -129,7 +129,7 @@ void rgb_matrix_indicators_user(void) {
                 }
             }
             rgb_matrix_set_color(42, 255, 33, 0);  //Layer 1 button
-            rgb_matrix_set_color(40, 255, 33, 0);  //Layer 1 button
+            rgb_matrix_set_color(39, 255, 33, 0);  //Enter button
 
         break;
 
@@ -139,10 +139,13 @@ void rgb_matrix_indicators_user(void) {
                     case 0:
                         rgb_matrix_set_color(i, 0, 0, 0);
                         break;
-                    case 1 ... 10:
-                        rgb_matrix_set_color(i, 255, 33, 0); //numbers Layer 2
+                    case 1 ... 11:
+                        rgb_matrix_set_color(i, 255, 255, 255); //Numbers in Layer 2
                         break;
-                    case 11 ... 46:
+                    case 12:
+                        rgb_matrix_set_color(i, 255, 33, 0); //Cedilha in Layer 2
+                        break;
+                    case 13 ... 46:
                         rgb_matrix_set_color(i, 0, 0, 0);
                         break;
                 }
@@ -157,12 +160,10 @@ void rgb_matrix_indicators_user(void) {
                         break;
                 }
             }
-            rgb_matrix_set_color(9, 255, 33, 0); //Coding keys
-            rgb_matrix_set_color(10, 255, 33, 0); //Coding keys
-            rgb_matrix_set_color(21, 255, 33, 0); //Coding keys
-            rgb_matrix_set_color(22, 255, 33, 0); //Coding keys
-            rgb_matrix_set_color(45, 255, 33, 0); //key cedilha
-            rgb_matrix_set_color(46, 255, 33, 0); //key ão
+            rgb_matrix_set_color(1, 255, 33, 0); //Coding keys
+            rgb_matrix_set_color(2, 255, 33, 0); //Coding keys
+            rgb_matrix_set_color(3, 255, 33, 0); //Coding keys
+            rgb_matrix_set_color(4, 255, 33, 0); //Coding keys
             rgb_matrix_set_color(41, 255, 0, 0);   //Layer 3
 
         break;
@@ -194,20 +195,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             }
             break;
             return false;
-
-        // ã key
-        case AO:
-            if (record->event.pressed) {
-                register_code(KC_LSFT);
-                register_code(KC_GRV);
-                unregister_code(KC_LSFT);
-                unregister_code(KC_GRV);
-                register_code(KC_A);
-                unregister_code(KC_A);
-            }
-            break;
-            return false;
-    }
     return true;
 }
 
