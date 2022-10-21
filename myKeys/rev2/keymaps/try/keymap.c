@@ -44,14 +44,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+-----------------|
  * | LShift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |      Del       |
  * |------+------+------+------+------+------+------+------+------+------+------+-----------------|
- * | LCtrl |  |   GUI   | Enter  |   LAlt    |  Space  |  Lower  | Up | Down |  Left  |   Right   |
+ * | LCtrl | GUI |      |   |   EnterLAlt    |  Space  |  Lower  | Up | Down |  Left  |   Right   |
  * `----------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_ortho_4x12_1x2uC(
       KC_ESC  , KC_Q   , KC_W , KC_E   , KC_R , KC_T   , KC_Y  , KC_U   , KC_I    , KC_O    , KC_P    , KC_BSPC,
       KC_TAB  , KC_A   , KC_S , KC_D   , KC_F , KC_G   , KC_H  , KC_J   , KC_K    , KC_L    , KC_SCLN , KC_ENT,
       KC_LSFT , KC_Z   , KC_X , KC_C   , KC_V , KC_B   , KC_N  , KC_M   , KC_COMM , KC_DOT  , KC_SLSH , KC_DEL,
-      KC_LCTL , KC_NO  , KC_LGUI, KC_NO , LALT_T(KC_ENT), LT(2,KC_SPC) , MO(1) , KC_UP  , KC_DOWN , KC_LEFT , KC_RGHT
+      KC_LCTL , KC_LGUI  , KC_NO, KC_NO , LALT_T(KC_ENT), LT(2,KC_SPC) , MO(1) , KC_UP  , KC_DOWN , KC_LEFT , KC_RGHT
 ),
 
 /* Lower (Layer 1)
@@ -119,17 +119,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //Per key lights
 void rgb_matrix_indicators_user(void) {
 #ifdef RGB_MATRIX_ENABLE
+            //turn off backplate rgb
+            for (int i = 47; i < DRIVER_LED_TOTAL; i++) {
+                rgb_matrix_set_color(i, 0, 0, 0);
+            }
+            //turn off backplate rgb
+
     switch (get_highest_layer(layer_state)) {
         case _QWERTY:
             for (int i = 0; i < DRIVER_LED_TOTAL; i++) { //prevent keyboard turn on all the leds that i dont want
                 switch (i) {
                     case 0 ... 46:
-                        rgb_matrix_set_color(i, 0, 0, 0);
+                        rgb_matrix_set_color(i, 20, 20, 20);
                         break;
                 }
             }
-            rgb_matrix_set_color(42, 255, 33, 0);  //Layer 1 button
-            rgb_matrix_set_color(39, 255, 33, 0);  //Enter button
+            rgb_matrix_set_color(43, 0, 255, 0);  //key up button
+            rgb_matrix_set_color(44, 255, 0, 0);  //key down button
 
         break;
 
@@ -195,19 +201,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             }
             break;
             return false;
-
-        // ã key
-       /*  case AO:
-            if (record->event.pressed) {
-                register_code(KC_LSFT);
-                register_code(KC_GRV);
-                unregister_code(KC_LSFT);
-                unregister_code(KC_GRV);
-                register_code(KC_A);
-                unregister_code(KC_A);
-            }
-            break;
-            return false; */
     }
     return true;
 }
@@ -216,3 +209,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 // layer_state_t layer_state_set_user(layer_state_t state) {         Layer raise and lower same time
 //   return update_tri_layer_state(state, _LOWER, _RAISE, _NUMP);
 // }
+
