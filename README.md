@@ -14,7 +14,7 @@ First of all, i'm thankful to [Guilherme Bermêo](https://github.com/GMBermeo). 
 
  ####  hex files
 >
-> - Install qmk tookbox.
+> - Install qmk toolbox.
 > - Active 'reset' mode on your keyboard. 
 > - flash the hex file on your keyboard. 
 
