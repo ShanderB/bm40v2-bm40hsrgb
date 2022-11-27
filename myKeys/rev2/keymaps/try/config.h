@@ -25,6 +25,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Select hand configuration */
 
 
+/* Quantitiy of layers*/
+#define DYNAMIC_KEYMAP_LAYER_COUNT 9
 
 // #define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 150
@@ -71,11 +73,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Disable the animations you don't want/need.  You will need to disable a good number of these    *
  * because they take up a lot of space.  Disable until you can successfully compile your firmware. */
-#    define ENABLE_RGB_MATRIX_ALPHAS_MODS
-#    define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
+#    undef ENABLE_RGB_MATRIX_ALPHAS_MODS
+#    undef ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 #    undef ENABLE_RGB_MATRIX_BREATHING
-#    define ENABLE_RGB_MATRIX_BAND_SAT
-#    define ENABLE_RGB_MATRIX_BAND_VAL
+#    undef ENABLE_RGB_MATRIX_BAND_SAT
+#    undef ENABLE_RGB_MATRIX_BAND_VAL
 #    undef ENABLE_RGB_MATRIX_BAND_PINWHEEL_SAT
 #    undef ENABLE_RGB_MATRIX_BAND_PINWHEEL_VAL
 #    undef ENABLE_RGB_MATRIX_BAND_SPIRAL_SAT
@@ -91,20 +93,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    undef ENABLE_RGB_MATRIX_CYCLE_SPIRAL
 #    undef ENABLE_RGB_MATRIX_RAINBOW_BEACON
 #    undef ENABLE_RGB_MATRIX_RAINBOW_PINWHEELS
-#    define ENABLE_RGB_MATRIX_RAINDROPS
-#    define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
-#    define ENABLE_RGB_MATRIX_TYPING_HEATMAP
-#    define ENABLE_RGB_MATRIX_DIGITAL_RAIN
+#    undef ENABLE_RGB_MATRIX_RAINDROPS
+#    undef ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
+#    undef ENABLE_RGB_MATRIX_TYPING_HEATMAP
+#    undef ENABLE_RGB_MATRIX_DIGITAL_RAIN
 #    undef ENABLE_RGB_MATRIX_SOLID_REACTIVE
 #    undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
 #    undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
-#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
+#    undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
 #    undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_CROSS
 #    undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTICROSS
 #    undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_NEXUS
-#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS
+#    undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS
 #    undef ENABLE_RGB_MATRIX_SPLASH
 #    undef ENABLE_RGB_MATRIX_MULTISPLASH
 #    undef ENABLE_RGB_MATRIX_SOLID_SPLASH
-#    define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
+#    undef ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
 #endif

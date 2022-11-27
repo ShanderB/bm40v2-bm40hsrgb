@@ -19,7 +19,12 @@ enum layers {
   _QWERTY,
   _LOWER,
   _RAISE,
-  _NUMP
+  _NUMP,
+  _F_KEYS,
+  _2,
+  _3,
+  _4,
+  _5
 };
 
 uint8_t mod_state;
@@ -71,7 +76,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_NO   ,  KC_NO  , KC_NO   ,  KC_NO  , KC_NO  , KC_NO , KC_NO , KC_NO      , KC_NO      , KC_NO   , KC_NO , KC_NO,
       KC_LSFT , KC_NO   , KC_NO   , KC_NO   , KC_NO  , KC_NO , KC_NO , S(KC_NUHS) , S(KC_NUBS) , KC_HOME , KC_END, KC_NO,
       KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO  , MO(3) , KC_NO , KC_MNXT      , KC_VOLD      ,  KC_VOLU , KC_MPLY
-
 ),
 
 /* Raise (Layer 2)
@@ -90,12 +94,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       CEDILHA  , KC_F2 , KC_F4 , KC_F5 , KC_NO  , KC_NO  , KC_NO  , KC_MINS , KC_EQL  ,  KC_NO   ,KC_NO   , KC_BSLS,
       KC_LSFT, KC_F6 ,  KC_F12, KC_NO, KC_NO  , KC_NO  , KC_NO  , KC_NUHS , KC_NUBS , KC_PGUP  ,KC_PGDN , KC_NO,
       KC_NO  , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_NO , KC_NO ,  KC_NO , KC_NO
-
 ),
 
 /* Numb (Layer 3)
  * ,-----------------------------------------------------------------------------------.
- * |      | Reset |      |      |      |      |      |      |      |      |      |     |
+ * |      |       |      |      |      |      | Reset|      |      |      |      |     |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |                                                                                   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -106,13 +109,51 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_NUMP] = LAYOUT_ortho_4x12_1x2uC(
 
-      KC_NO,RESET,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,RESET,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
       KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
       KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
       KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
+),
 
+[_F_KEYS] = LAYOUT_ortho_4x12_1x2uC(
 
-)
+      KC_F1,KC_F2,KC_F3,KC_F4,KC_F5,KC_F6,KC_F7,KC_F8,KC_F9,KC_F10,KC_F11,KC_F12,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
+),
+
+[_2] = LAYOUT_ortho_4x12_1x2uC(
+
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
+),
+
+[_3] = LAYOUT_ortho_4x12_1x2uC(
+
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
+),
+
+[_4] = LAYOUT_ortho_4x12_1x2uC(
+
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
+),
+
+[_5] = LAYOUT_ortho_4x12_1x2uC(
+
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
+),
 
 };
 
@@ -182,7 +223,7 @@ void rgb_matrix_indicators_user(void) {
                         break;
                 }
             }
-            rgb_matrix_set_color(1, 255, 0, 0); //Reset key
+            rgb_matrix_set_color(6, 255, 0, 0); //Reset key
         break;
 
     }
@@ -204,9 +245,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     }
     return true;
 }
-
-
-// layer_state_t layer_state_set_user(layer_state_t state) {         Layer raise and lower same time
-//   return update_tri_layer_state(state, _LOWER, _RAISE, _NUMP);
-// }
-
