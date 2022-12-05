@@ -42,28 +42,28 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
- * ,----------------------------------------------------------------------------------------------.
- * | Esc  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  |     Backspace   |
- * |------+------+------+------+------+------+------+------+------+------+------+-----------------|
- * | Tab  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |      Enter      |
- * |------+------+------+------+------+------+------+------+------+------+------+-----------------|
- * | LShift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |      Del       |
- * |------+------+------+------+------+------+------+------+------+------+------+-----------------|
- * | LCtrl | GUI |      |   |   EnterLAlt    |  Space  |  Lower  | Up | Down |  Left  |   Right   |
- * `----------------------------------------------------------------------------------------------'
+ * ,------------------------------------------------------------------------------------------------------.
+ * | Esc  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  |     Backspace           |
+ * |------+------+------+------+------+------+------+------+------+------+------+-------------------------|
+ * | Tab  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |      Enter              |
+ * |------+------+------+------+------+------+------+------+------+------+------+-------------------------|
+ * | LShift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |      Del               |
+ * |------+------+------+------+------+------+------+------+------+------+------+-------------------------|
+ * | LCtrl | GUI |      | TOGL(3)  |   EnterLAlt    |  Space  |  Lower  | Up | Down |  Left  |    Right   |
+ * `------------------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_ortho_4x12_1x2uC(
       KC_ESC  , KC_Q   , KC_W , KC_E   , KC_R , KC_T   , KC_Y  , KC_U   , KC_I    , KC_O    , KC_P    , KC_BSPC,
       KC_TAB  , KC_A   , KC_S , KC_D   , KC_F , KC_G   , KC_H  , KC_J   , KC_K    , KC_L    , KC_SCLN , KC_ENT,
       KC_LSFT , KC_Z   , KC_X , KC_C   , KC_V , KC_B   , KC_N  , KC_M   , KC_COMM , KC_DOT  , KC_SLSH , KC_DEL,
-      KC_LCTL , KC_LGUI  , KC_NO, KC_NO , LALT_T(KC_ENT), LT(2,KC_SPC) , MO(1) , KC_UP  , KC_DOWN , KC_LEFT , KC_RGHT
+      KC_LCTL , KC_LGUI  , KC_NO, TG(3) , LALT_T(KC_ENT), LT(2,KC_SPC) , MO(1) , KC_UP  , KC_DOWN , KC_LEFT , KC_RGHT
 ),
 
 /* Lower (Layer 1)
  * ,---------------------------------------------------------------------------------------------------.
- * |   '   |   (  |  )   |   [{   |   }]   |    |     |    |     |     |              |      ~ `   |
+ * |   '   |   (  |  )   |   [{   |   }]   |    |     |    |     |     |              |      ~ `        |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
- * |      |      |          |    |   |    |    |   |     |    |            |       |
+ * |                                                                                                   |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
  * |LShift|    |    |    |   |   |   |S(NUHS)|S(NUBS)|Home|       End                   |              |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_QUOT , KC_LPRN , KC_RPRN , KC_LBRC ,KC_RBRC , KC_NO , KC_NO , KC_NO      , KC_NO      , KC_NO   ,KC_NO  , KC_GRV,
       KC_NO   ,  KC_NO  , KC_NO   ,  KC_NO  , KC_NO  , KC_NO , KC_NO , KC_NO      , KC_NO      , KC_NO   , KC_NO , KC_NO,
       KC_LSFT , KC_NO   , KC_NO   , KC_NO   , KC_NO  , KC_NO , KC_NO , S(KC_NUHS) , S(KC_NUBS) , KC_HOME , KC_END, KC_NO,
-      KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO  , MO(3) , KC_NO , KC_MNXT      , KC_VOLD      ,  KC_VOLU , KC_MPLY
+      KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO  , KC_NO , KC_NO , KC_MNXT      , KC_VOLD      ,  KC_VOLU , KC_MPLY
 ),
 
 /* Raise (Layer 2)
@@ -90,29 +90,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `---------------------------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_ortho_4x12_1x2uC(
-      KC_NO  , KC_1  , KC_2  , KC_3  , KC_4   , KC_5   , KC_6   , KC_7    , KC_8    , KC_9     ,KC_0    , KC_BSPC,
-      CEDILHA  , KC_F2 , KC_F4 , KC_F5 , KC_NO  , KC_NO  , KC_NO  , KC_MINS , KC_EQL  ,  KC_NO   ,KC_NO   , KC_BSLS,
-      KC_LSFT, KC_F6 ,  KC_F12, KC_NO, KC_NO  , KC_NO  , KC_NO  , KC_NUHS , KC_NUBS , KC_PGUP  ,KC_PGDN , KC_NO,
-      KC_NO  , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_NO , KC_NO ,  KC_NO , KC_NO
+      KC_NO    , KC_1  , KC_2    , KC_3  , KC_4   , KC_5   , KC_6   , KC_7    , KC_8    , KC_9     , KC_0    , KC_BSPC,
+      CEDILHA  , KC_F2 , KC_F4   , KC_F5 , KC_NO  , KC_NO  , KC_NO  , KC_MINS , KC_EQL  ,  KC_NO   , KC_NO   , KC_BSLS,
+      KC_LSFT  , KC_F6 ,  KC_F12 , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_NUHS , KC_NUBS , KC_PGUP  , KC_PGDN , KC_NO,
+      KC_NO    , KC_NO , KC_NO   , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_NO   , KC_NO   ,  KC_NO   , KC_NO
 ),
 
 /* Numb (Layer 3)
  * ,-----------------------------------------------------------------------------------.
- * |      |       |      |      |      |      | Reset|      |      |      |      |     |
+ * |      |   7   |  8  |   9   |      |      |     |    |  Reset  |      |      |   Backspace  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |                                                                                   |
+ * |      |   4  |   5  |   6   |                                                           |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |                                                                                   |
+ * |      |   1  |   2  |   3   |                                               |       DEL      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |                                                                                   |
+ * |      |      |   0  |  TOGL(3)    |      |   |  |      |      |      |      |       |
  * `-----------------------------------------------------------------------------------'
  */
 [_NUMP] = LAYOUT_ortho_4x12_1x2uC(
 
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,RESET,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
+      KC_NO, KC_P7 , KC_P8 , KC_P9 , KC_NO,KC_NO,KC_NO,KC_NO,RESET,KC_NO,KC_NO,KC_BSPC,
+      KC_NO, KC_P4 , KC_P5 , KC_P6 , KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO, KC_P1 , KC_P2 , KC_P3 , KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_DEL,
+      KC_NO, KC_NO , KC_P0 , TG(3) , KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
 ),
 
 [_F_KEYS] = LAYOUT_ortho_4x12_1x2uC(
@@ -223,7 +223,25 @@ void rgb_matrix_indicators_user(void) {
                         break;
                 }
             }
-            rgb_matrix_set_color(6, 255, 0, 0); //Reset key
+            rgb_matrix_set_color(8, 255, 0, 0); //Reset key
+            rgb_matrix_set_color(11, 255, 255, 0); //backspace key
+            rgb_matrix_set_color(35, 255, 255, 0); //del key
+
+
+            rgb_matrix_set_color(1, 255, 255, 255); //numpad 7
+            rgb_matrix_set_color(2, 255, 255, 255); //numpad 8
+            rgb_matrix_set_color(3, 255, 255, 255); //numpad 9
+
+            rgb_matrix_set_color(13, 255, 255, 255); //numpad 4
+            rgb_matrix_set_color(14, 255, 255, 255); //numpad 5
+            rgb_matrix_set_color(15, 255, 255, 255); //numpad 6
+
+            rgb_matrix_set_color(25, 255, 255, 255); //numpad 3
+            rgb_matrix_set_color(26, 255, 255, 255); //numpad 2
+            rgb_matrix_set_color(27, 255, 255, 255); //numpad 1
+
+            rgb_matrix_set_color(38, 255, 255, 255); //numpad 0
+            rgb_matrix_set_color(39, 255, 0, 0); //toggle layer 0
         break;
 
     }
