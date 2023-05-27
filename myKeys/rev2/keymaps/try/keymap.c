@@ -49,14 +49,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+-------------------------|
  * | LShift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |      Del               |
  * |------+------+------+------+------+------+------+------+------+------+------+-------------------------|
- * | LCtrl | GUI |      | TOGL(3)  |   EnterLAlt    |  Space  |  Lower  | Up | Down |  Left  |    Right   |
+ * | LCtrl | GUI |   TOGL(4)   | TOGL(3)  | EnterLAlt  |  Space  |  Lower  | Up | Down |  Left  |    Right   |
  * `------------------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_ortho_4x12_1x2uC(
       KC_ESC  , KC_Q   , KC_W , KC_E   , KC_R , KC_T   , KC_Y  , KC_U   , KC_I    , KC_O    , KC_P    , KC_BSPC,
       KC_TAB  , KC_A   , KC_S , KC_D   , KC_F , KC_G   , KC_H  , KC_J   , KC_K    , KC_L    , KC_SCLN , KC_ENT,
       KC_LSFT , KC_Z   , KC_X , KC_C   , KC_V , KC_B   , KC_N  , KC_M   , KC_COMM , KC_DOT  , KC_SLSH , KC_DEL,
-      KC_LCTL , KC_LGUI  , KC_NO, TG(3) , LALT_T(KC_ENT), LT(2,KC_SPC) , MO(1) , KC_UP  , KC_DOWN , KC_LEFT , KC_RGHT
+      KC_LCTL , KC_LGUI  , TG(4), TG(3) , LALT_T(KC_ENT), LT(2,KC_SPC) , MO(1) , KC_UP  , KC_DOWN , KC_LEFT , KC_RGHT
 ),
 
 /* Lower (Layer 1)
@@ -97,15 +97,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 /* Numb (Layer 3)
- * ,-----------------------------------------------------------------------------------.
+ * ,--------------------------------------------------------------------------------------------.
  * |      |   7   |  8  |   9   |      |      |     |    |  Reset  |      |      |   Backspace  |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |   4  |   5  |   6   |                                                           |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |   1  |   2  |   3   |                                               |       DEL      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |   0  |  TOGL(3)    |      |   |  |      |      |      |      |       |
- * `-----------------------------------------------------------------------------------'
+ * |------+------+------+------+------+------+------+------+------+------+------+---------------|
+ * |      |   4  |   5  |   6   |                                                               |
+ * |------+------+------+------+------+------+------+------+------+------+------+---------------|
+ * |      |   1  |   2  |   3   |                                               |       DEL     |
+ * |------+------+------+------+------+------+------+------+------+------+------+---------------|
+ * |      |      |   0  |  TOGL(3)    |      |   |  |      |      |      |      |               |
+ * `-------------------------------------------------------------------------------------------'
  */
 [_NUMP] = LAYOUT_ortho_4x12_1x2uC(
 
@@ -114,13 +114,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_NO, KC_P1 , KC_P2 , KC_P3 , KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_DEL,
       KC_NO, KC_NO , KC_P0 , TG(3) , KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
 ),
-
+/* _F_KEYS (Layer 4)
+ * ,--------------------------------------------------------------------------------------------.
+ * |  F11 | F12  |                                                                              |
+ * |------+------+------+------+------+------+------+------+------+------+------+---------------|
+ * |  F6  |  F7  |  F8  |  F9  |  F10 |                                                         |
+ * |------+------+------+------+------+------+------+------+------+------+------+---------------|
+ * |  F1  |  F2  |  F3  |  F4  |  F5  |                                                         |
+ * |------+------+------+------+------+------+------+------+------+------+------+---------------|
+ * |                    | TOGL(4)                                                               |
+ * `-------------------------------------------------------------------------------------------'
+ */
 [_F_KEYS] = LAYOUT_ortho_4x12_1x2uC(
 
-      KC_F1,KC_F2,KC_F3,KC_F4,KC_F5,KC_F6,KC_F7,KC_F8,KC_F9,KC_F10,KC_F11,KC_F12,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
+      KC_F11, KC_F12,KC_NO,KC_NO ,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_F6, KC_F7,KC_F8,KC_F9 ,KC_F10,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_F1, KC_F2,KC_F3,KC_F4 ,KC_F5 ,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
+      KC_NO, KC_NO,TG(4),KC_NO ,KC_NO ,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
 ),
 
 [_2] = LAYOUT_ortho_4x12_1x2uC(
@@ -167,7 +177,8 @@ void rgb_matrix_indicators_user(void) {
             //turn off backplate rgb
 
     switch (get_highest_layer(layer_state)) {
-        case _QWERTY:
+////////////////////////////////////////////////////////////////////////////////////////////////////
+        case _QWERTY: 
             for (int i = 0; i < DRIVER_LED_TOTAL; i++) { //prevent keyboard turn on all the leds that i dont want
                 switch (i) {
                     case 0 ... 46:
@@ -179,7 +190,7 @@ void rgb_matrix_indicators_user(void) {
             rgb_matrix_set_color(44, 255, 0, 0);  //key down button
 
         break;
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
         case _RAISE:
             for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
                 switch (i) {
@@ -198,7 +209,7 @@ void rgb_matrix_indicators_user(void) {
                 }
             }
             break;
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
         case _LOWER:
             for (int i = 0; i < DRIVER_LED_TOTAL; i++) { //prevent keyboard turn on all the leds that i dont want
                 switch (i) {
@@ -211,10 +222,9 @@ void rgb_matrix_indicators_user(void) {
             rgb_matrix_set_color(2, 255, 33, 0); //Coding keys
             rgb_matrix_set_color(3, 255, 33, 0); //Coding keys
             rgb_matrix_set_color(4, 255, 33, 0); //Coding keys
-            rgb_matrix_set_color(41, 255, 0, 0);   //Layer 3
 
         break;
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
         case _NUMP:
             for (int i = 0; i < DRIVER_LED_TOTAL; i++) { //prevent keyboard turn on all the leds that i dont want
                 switch (i) {
@@ -226,6 +236,7 @@ void rgb_matrix_indicators_user(void) {
             rgb_matrix_set_color(8, 255, 0, 0); //Reset key
             rgb_matrix_set_color(11, 255, 255, 0); //backspace key
             rgb_matrix_set_color(35, 255, 255, 0); //del key
+            rgb_matrix_set_color(39, 255, 0, 0); //toggle layer
 
 
             rgb_matrix_set_color(1, 255, 255, 255); //numpad 7
@@ -241,9 +252,34 @@ void rgb_matrix_indicators_user(void) {
             rgb_matrix_set_color(27, 255, 255, 255); //numpad 1
 
             rgb_matrix_set_color(38, 255, 255, 255); //numpad 0
-            rgb_matrix_set_color(39, 255, 0, 0); //toggle layer 0
         break;
+////////////////////////////////////////////////////////////////////////////////////////////////////
+        case _F_KEYS:
+            for (int i = 0; i < DRIVER_LED_TOTAL; i++) { //prevent keyboard turn on all the leds that i dont want
+                switch (i) {
+                    case 0 ... 46:
+                        rgb_matrix_set_color(i, 0, 0, 0);
+                        break;
+                }
+            }
+            rgb_matrix_set_color(38, 255, 0, 0); //toggle layer
 
+            rgb_matrix_set_color(0, 255, 255, 255); //function key F11
+            rgb_matrix_set_color(1, 255, 255, 255); //function key F12
+
+            rgb_matrix_set_color(12, 255, 255, 255); //function key F6
+            rgb_matrix_set_color(14, 255, 255, 255); //function key F7
+            rgb_matrix_set_color(15, 255, 255, 255); //function key F8
+            rgb_matrix_set_color(16, 255, 255, 255); //function key F9
+            rgb_matrix_set_color(17, 255, 255, 255); //function key F10
+
+            rgb_matrix_set_color(24, 255, 255, 255); //function key F1
+            rgb_matrix_set_color(25, 255, 255, 255); //function key F2
+            rgb_matrix_set_color(26, 255, 255, 255); //function key F3
+            rgb_matrix_set_color(27, 255, 255, 255); //function key F4
+
+        break;
+////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 };
 #endif
