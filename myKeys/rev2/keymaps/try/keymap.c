@@ -20,11 +20,7 @@ enum layers {
   _LOWER,
   _RAISE,
   _NUMP,
-  _F_KEYS,
-  _2,
-  _3,
-  _4,
-  _5
+  _F_KEYS
 };
 
 uint8_t mod_state;
@@ -35,7 +31,6 @@ enum custom_keycodes {
     RAISE,
     CEDILHA,            // ç direct key
     AO,                 // ã direct key
-
 };
 
 
@@ -109,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_NUMP] = LAYOUT_ortho_4x12_1x2uC(
 
-      KC_NO, KC_P7 , KC_P8 , KC_P9 , KC_NO,KC_NO,KC_NO,KC_NO,RESET,KC_NO,KC_NO,KC_BSPC,
+      KC_NO, KC_P7 , KC_P8 , KC_P9 , KC_NO,KC_NO,KC_NO,KC_NO,QK_BOOT,KC_NO,KC_NO,KC_BSPC,
       KC_NO, KC_P4 , KC_P5 , KC_P6 , KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
       KC_NO, KC_P1 , KC_P2 , KC_P3 , KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_DEL,
       KC_NO, KC_NO , KC_P0 , TG(3) , KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
@@ -132,46 +127,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_F1, KC_F2,KC_F3,KC_F4 ,KC_F5 ,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
       KC_NO, KC_NO,TG(4),KC_NO ,KC_NO ,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
 ),
-
-[_2] = LAYOUT_ortho_4x12_1x2uC(
-
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
-),
-
-[_3] = LAYOUT_ortho_4x12_1x2uC(
-
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
-),
-
-[_4] = LAYOUT_ortho_4x12_1x2uC(
-
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
-),
-
-[_5] = LAYOUT_ortho_4x12_1x2uC(
-
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO
-),
-
 };
 
 //Per key lights
-void rgb_matrix_indicators_user(void) {
+bool  rgb_matrix_indicators_user(void) {
 #ifdef RGB_MATRIX_ENABLE
             //turn off backplate rgb
-            for (int i = 47; i < DRIVER_LED_TOTAL; i++) {
+            for (int i = 47; i < RGB_MATRIX_LED_COUNT; i++) {
                 rgb_matrix_set_color(i, 0, 0, 0);
             }
             //turn off backplate rgb
@@ -179,7 +141,7 @@ void rgb_matrix_indicators_user(void) {
     switch (get_highest_layer(layer_state)) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
         case _QWERTY: 
-            for (int i = 0; i < DRIVER_LED_TOTAL; i++) { //prevent keyboard turn on all the leds that i dont want
+            for (int i = 0; i < RGB_MATRIX_LED_COUNT; i++) { //prevent keyboard turn on all the leds that i dont want
                 switch (i) {
                     case 0 ... 46:
                         rgb_matrix_set_color(i, 20, 20, 20);
@@ -192,7 +154,7 @@ void rgb_matrix_indicators_user(void) {
         break;
 ////////////////////////////////////////////////////////////////////////////////////////////////////
         case _RAISE:
-            for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
+            for (int i = 0; i < RGB_MATRIX_LED_COUNT; i++) {
                 switch (i) {
                     case 0:
                         rgb_matrix_set_color(i, 0, 0, 0);
@@ -211,7 +173,7 @@ void rgb_matrix_indicators_user(void) {
             break;
 ////////////////////////////////////////////////////////////////////////////////////////////////////
         case _LOWER:
-            for (int i = 0; i < DRIVER_LED_TOTAL; i++) { //prevent keyboard turn on all the leds that i dont want
+            for (int i = 0; i < RGB_MATRIX_LED_COUNT; i++) { //prevent keyboard turn on all the leds that i dont want
                 switch (i) {
                     case 0 ... 46:
                         rgb_matrix_set_color(i, 0, 0, 0);
@@ -226,7 +188,7 @@ void rgb_matrix_indicators_user(void) {
         break;
 ////////////////////////////////////////////////////////////////////////////////////////////////////
         case _NUMP:
-            for (int i = 0; i < DRIVER_LED_TOTAL; i++) { //prevent keyboard turn on all the leds that i dont want
+            for (int i = 0; i < RGB_MATRIX_LED_COUNT; i++) { //prevent keyboard turn on all the leds that i dont want
                 switch (i) {
                     case 0 ... 46:
                         rgb_matrix_set_color(i, 0, 0, 0);
@@ -255,7 +217,7 @@ void rgb_matrix_indicators_user(void) {
         break;
 ////////////////////////////////////////////////////////////////////////////////////////////////////
         case _F_KEYS:
-            for (int i = 0; i < DRIVER_LED_TOTAL; i++) { //prevent keyboard turn on all the leds that i dont want
+            for (int i = 0; i < RGB_MATRIX_LED_COUNT; i++) { //prevent keyboard turn on all the leds that i dont want
                 switch (i) {
                     case 0 ... 46:
                         rgb_matrix_set_color(i, 0, 0, 0);
@@ -281,6 +243,7 @@ void rgb_matrix_indicators_user(void) {
         break;
 ////////////////////////////////////////////////////////////////////////////////////////////////////
     }
+    return false;
 };
 #endif
 

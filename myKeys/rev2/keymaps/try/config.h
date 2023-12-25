@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /* Quantitiy of layers*/
-#define DYNAMIC_KEYMAP_LAYER_COUNT 9
+#define DYNAMIC_KEYMAP_LAYER_COUNT 5
 
 // #define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 150
@@ -37,16 +37,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifdef RGBLIGHT_ENABLE
 #    undef RGBLED_NUM
 #    define RGBLED_NUM 27
-#define RGBLIGHT_EFFECT_BREATHING
-#define RGBLIGHT_EFFECT_RAINBOW_MOOD
-#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-#define RGBLIGHT_EFFECT_SNAKE
-#define RGBLIGHT_EFFECT_KNIGHT
-#define RGBLIGHT_EFFECT_CHRISTMAS
-#define RGBLIGHT_EFFECT_STATIC_GRADIENT
-#define RGBLIGHT_EFFECT_RGB_TEST
-#define RGBLIGHT_EFFECT_ALTERNATING
-#define RGBLIGHT_EFFECT_TWINKLE
 #    define RGBLIGHT_SLEEP
 #    define RGBLIGHT_SPLIT
 #    define RGBLIGHT_LIMIT_VAL 120
@@ -63,9 +53,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #   define RGB_DISABLE_AFTER_TIMEOUT 0 // number of ticks to wait until disabling effects
 #    define RGB_DISABLE_WHEN_USB_SUSPENDED // turn off effects when suspended
 #    define RGB_MATRIX_FRAMEBUFFER_EFFECTS
-#    define RGB_MATRIX_LED_PROCESS_LIMIT (DRIVER_LED_TOTAL + 4) / 5 // limits the number of LEDs to process in an animation per task run (increases keyboard responsiveness)
+#    define RGB_MATRIX_LED_PROCESS_LIMIT (47 + 4) / 5 // limits the number of LEDs to process in an animation per task run (increases keyboard responsiveness)
 #    define RGB_MATRIX_LED_FLUSH_LIMIT 16                           // limits in milliseconds how frequently an animation will update the LEDs. 16 (16ms) is equivalent to limiting to 60fps (increases keyboard responsiveness)
-#    define RGB_MATRIX_MAXIMUM_BRIGHTNESS 180                       // limits maximum brightness of LEDs to 150 out of 255. Higher may cause the controller to crash.
 #    define RGB_MATRIX_HUE_STEP 8
 #    define RGB_MATRIX_SAT_STEP 8
 #    define RGB_MATRIX_VAL_STEP 8
@@ -73,6 +62,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Disable the animations you don't want/need.  You will need to disable a good number of these    *
  * because they take up a lot of space.  Disable until you can successfully compile your firmware. */
+#    undef RGBLIGHT_EFFECT_BREATHING
+#    undef RGBLIGHT_EFFECT_RAINBOW_MOOD
+#    undef RGBLIGHT_EFFECT_RAINBOW_SWIRL
+#    undef RGBLIGHT_EFFECT_SNAKE
+#    undef RGBLIGHT_EFFECT_KNIGHT
+#    undef RGBLIGHT_EFFECT_CHRISTMAS
+#    undef RGBLIGHT_EFFECT_STATIC_GRADIENT
+#    undef RGBLIGHT_EFFECT_RGB_TEST
+#    undef RGBLIGHT_EFFECT_ALTERNATING
+#    undef RGBLIGHT_EFFECT_TWINKLE
 #    undef ENABLE_RGB_MATRIX_ALPHAS_MODS
 #    undef ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 #    undef ENABLE_RGB_MATRIX_BREATHING

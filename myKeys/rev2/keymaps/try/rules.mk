@@ -1,13 +1,13 @@
-RGBLIGHT_ENABLE    = no
-VIA_ENABLE         = yes
+VIA_ENABLE = yes
+LTO_ENABLE = yes
+
 RGB_MATRIX_ENABLE  = yes
+RGBLIGHT_ENABLE    = no
 MOUSEKEY_ENABLE    = no
 NKRO_ENABLE        = no
-OLED_ENABLE        = yes
-OLED_DRIVER        = SSD1306
-LTO_ENABLE         = yes
-SLEEP_LED_ENABLE   = yes
-WPM_ENABLE         = yes
+OLED_ENABLE        = no
+SLEEP_LED_ENABLE   = no
+WPM_ENABLE         = no
 
 
 #Dont use
