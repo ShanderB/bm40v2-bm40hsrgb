@@ -56,21 +56,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Lower (Layer 1)
  * ,---------------------------------------------------------------------------------------------------.
- * |   '   |   (  |  )   |   [{   |   }]   |    |     |    |     |     |              |      ~ `        |
+ * |   '   |   (  |  )   |   [{   |   }]   |    |     |    |     |     |              |      ~ `       |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
  * |                                                                                                   |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
- * |LShift|    |    |    |   |   |   |S(NUHS)|S(NUBS)|                                                 |
+ * |LShift|    |    |    |   |   |                                                                     |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
  * |                                                     Next  |Vol - |   Vol +       |      Play      |
  * `---------------------------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_ortho_4x12_1x2uC(
 
-      KC_QUOT , KC_LPRN , KC_RPRN , KC_LBRC ,KC_RBRC , KC_NO , KC_NO , KC_NO      , KC_NO      , KC_NO   ,KC_NO  , KC_GRV,
-      KC_NO   ,  KC_NO  , KC_NO   ,  KC_NO  , KC_NO  , KC_NO , KC_NO , KC_NO      , KC_NO      , KC_NO   , KC_NO , KC_NO,
-      KC_LSFT , KC_NO   , KC_NO   , KC_NO   , KC_NO  , KC_NO , KC_NO , S(KC_NUHS) , S(KC_NUBS) , KC_NO , KC_NO, KC_NO,
-      KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO  , KC_NO , KC_NO , KC_MNXT      , KC_VOLD      ,  KC_VOLU , KC_MPLY
+      KC_QUOT , KC_LPRN , KC_RPRN , KC_LBRC ,KC_RBRC , KC_NO , KC_NO , KC_NO      , KC_NO    , KC_NO   ,KC_NO  , KC_GRV,
+      KC_NO   ,  KC_NO  , KC_NO   ,  KC_NO  , KC_NO  , KC_NO , KC_NO , KC_NO      , KC_NO    , KC_NO   , KC_NO , KC_NO,
+      KC_LSFT , KC_NO   , KC_NO   , KC_NO   , KC_NO  , KC_NO , KC_NO , KC_NO      , KC_NO    , KC_NO   , KC_NO, KC_NO,
+      KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO  , KC_NO , KC_NO , KC_MNXT    , KC_VOLD  , KC_VOLU , KC_MPLY
 ),
 
 /* Raise (Layer 2)
@@ -79,16 +79,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
  * |  Ç     | F2   |  F4  |   F5   |    |    |       |   -_ |   += |    |             |    \ |         |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
- * |LShift|   F6   |   F12   |      |      |      |       | NUHS | NUBS | PgUp  |   PgDn       |       |
+ * |LShift|   F6   |   F12   |      |      |      |       |             | PgUp  |   PgDn       |       |
  * |------+------+------+------+------+------+------+------+------+------+---------------+-------------|
  * |      |      |      |      |      |             |      |      |     |               |              |
  * `---------------------------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_ortho_4x12_1x2uC(
       KC_NO    , KC_1  , KC_2    , KC_3  , KC_4   , KC_5   , KC_6   , KC_7    , KC_8    , KC_9     , KC_0    , KC_BSPC,
-      CEDILHA  , KC_F2 , KC_F4   , KC_F5 , KC_NO  , KC_NO  , KC_NO  , KC_MINS , KC_EQL  ,  KC_NO   , KC_NO   , KC_BSLS,
-      KC_LSFT  , KC_F6 ,  KC_F12 , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_NUHS , KC_NUBS , KC_PGUP  , KC_PGDN , KC_NO,
-      KC_NO    , KC_NO , KC_NO   , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_NO   , KC_NO   ,  KC_NO   , KC_NO
+      CEDILHA  , KC_F2 , KC_F4   , KC_F5 , KC_NO  , KC_NO  , KC_NO  , KC_MINS , KC_EQL  , KC_NO    , KC_NO   , KC_BSLS,
+      KC_LSFT  , KC_F6 , KC_F12  , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_NO   , KC_NO   , KC_PGUP  , KC_PGDN , KC_NO,
+      KC_NO    , KC_NO , KC_NO   , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_NO   , KC_NO   , KC_NO    , KC_NO
 ),
 
 /* Arrows (Layer 3)
